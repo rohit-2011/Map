@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Route Finder</title>
+
+
+    <!-- OUR CSS -->
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+
+    <!-- LEAFLET MAP CSS -->
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header">
+
+        <h1>
+            Route Finder
+        </h1>
+
+        <p>
+            Find routes, distance, travel time and nearby places
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         ROUTE SEARCH
+    ========================== -->
+
+    <section class="search-section">
+
+
+        <!-- FROM -->
+
+        <div class="input-group">
+
+            <label for="origin">
+                From
+            </label>
+
+            <input
+                type="text"
+                id="origin"
+                placeholder="Enter starting place"
+                autocomplete="off"
+            >
+
+            <div
+                id="originSuggestions"
+                class="suggestions"
+            ></div>
+
+        </div>
+
+
+
+        <!-- TO -->
+
+        <div class="input-group">
+
+            <label for="destination">
+                To
+            </label>
+
+            <input
+                type="text"
+                id="destination"
+                placeholder="Enter destination"
+                autocomplete="off"
+            >
+
+            <div
+                id="destinationSuggestions"
+                class="suggestions"
+            ></div>
+
+        </div>
+
+
+
+        <!-- SEARCH ROUTE -->
+
+        <button
+            id="searchBtn"
+            type="button"
+        >
+            Search Route
+        </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         DIRECT PLACE SEARCH
+         ONLY INPUT + BUTTON
+    ========================== -->
+
+    <section class="place-search-section">
+
+        <div class="place-search-box">
+
+            <input
+                type="text"
+                id="placeSearchInput"
+                placeholder="Search any place..."
+                autocomplete="off"
+            >
+
+            <button
+                id="placeSearchBtn"
+                type="button"
+            >
+                Search
+            </button>
+
+        </div>
+
+
+        <!-- PLACE SUGGESTIONS -->
+
+        <div
+            id="placeSuggestions"
+            class="place-suggestions"
+        ></div>
+
+
+        <!-- PLACE SEARCH RESULT -->
+
+        <div
+            id="placeSearchResult"
+            class="place-search-result"
+        ></div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TRAVEL MODES
+    ========================== -->
+
+    <section class="modes">
+
+
+        <button
+            class="mode-btn active"
+            data-mode="driving"
+            type="button"
+        >
+            🚗 Driving
+        </button>
+
+
+        <button
+            class="mode-btn"
+            data-mode="walking"
+            type="button"
+        >
+            🚶 Walking
+        </button>
+
+
+        <button
+            class="mode-btn"
+            data-mode="transit"
+            type="button"
+        >
+            🚌 Transit
+        </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+
+        <!-- =========================
+             MAP
+        ========================== -->
+
+        <section class="map-container">
+
+            <div id="map"></div>
+
+        </section>
+
+
+
+        <!-- =========================
+             RESULT PANEL
+        ========================== -->
+
+        <aside class="result-panel">
+
+
+            <!-- ROUTE INFORMATION -->
+
+            <section
+                id="routeInfo"
+                class="result-card"
+            >
+
+                <h2>
+                    Route Information
+                </h2>
+
+
+                <div class="route-details">
+
+
+                    <div>
+
+                        <span>
+                            Distance
+                        </span>
+
+                        <strong id="distance">
+                            —
+                        </strong>
+
+                    </div>
+
+
+
+                    <div>
+
+                        <span>
+                            Time
+                        </span>
+
+                        <strong id="duration">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- NEARBY PLACES -->
+
+            <section
+                id="placesSection"
+                class="result-card"
+            >
+
+                <h2>
+                    Nearby Hotels & Petrol Pumps
+                </h2>
+
+
+                <div id="placesList">
+
+                    <p class="empty-message">
+                        Search a route to see nearby places.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </aside>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =========================
+     LEAFLET MAP JAVASCRIPT
+========================== -->
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+
+
+<!-- =========================
+     OUR JAVASCRIPT
+========================== -->
+
+<script
+    src="/static/js/app.js">
+</script>
+
+
+</body>
+
+</html>
