@@ -1,8 +1,14 @@
+import os
 
 # RAPIDAPI CONFIGURATION
-from api_config import RAPIDAPI_KEY
+
+try:
+    from api_config import RAPIDAPI_KEY
+except ModuleNotFoundError:
+    RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY")
 
 RAPIDAPI_HOST = "google-map-places.p.rapidapi.com"
+
 
 # API URLS
 
